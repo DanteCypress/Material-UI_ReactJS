@@ -24,10 +24,9 @@ export default createMuiTheme({
     successColor: "#017C68"
   },
   typography: {
-    htmlFontSize: 10,
-    fontFamily: "Lato, Helvetica, Arial, sans-serif",
-    body2: {
-      letterSpacing: 1
+    h3: {
+      fontWeight: 300,
+      fontFamily: "Roboto, Helvetica, Arial, sans-serif"
     }
   }
 });
