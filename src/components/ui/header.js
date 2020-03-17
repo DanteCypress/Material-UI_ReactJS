@@ -5,6 +5,7 @@ import useScrollTrigger from "@material-ui/core/useScrollTrigger";
 import { makeStyles } from "@material-ui/core/styles";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
+import Button from "@material-ui/core/Button";
 import logo from "../../assets/logo.svg";
 
 function ElevationScroll(props) {
@@ -34,6 +35,13 @@ const useStyles = makeStyles(theme => ({
     ...theme.typography.tabs,
     minWidth: 12,
     marginLeft: "25px"
+  },
+  button: {
+    ...theme.typography.estimate,
+    borderRadius: "50px",
+    marginLeft: "50px",
+    marginRight: "25px",
+    height: "45px"
   }
 }));
 
@@ -43,7 +51,7 @@ export default function Header(props) {
   return (
     <React.Fragment>
       <ElevationScroll>
-        <AppBar position="fixed" color="secondary">
+        <AppBar position="fixed" color="primary">
           {/*Toolbar- stack content horizontally, rather than vertically*/}
           <Toolbar disableGutters>
             <img src={logo} alt="logo" className={classes.logo} />
@@ -54,6 +62,13 @@ export default function Header(props) {
               <Tab className={classes.tabs} label="About Us" />
               <Tab className={classes.tabs} label="Contact Us" />
             </Tabs>
+            <Button
+              variant="contained"
+              color="secondary"
+              className={classes.button}
+            >
+              Free Estimate
+            </Button>
           </Toolbar>
         </AppBar>
       </ElevationScroll>

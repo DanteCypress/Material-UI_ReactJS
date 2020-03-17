@@ -3,7 +3,7 @@ import { createMuiTheme } from "@material-ui/core/styles";
 export default createMuiTheme({
   palette: {
     primary: {
-      main: "#118E9D",
+      main: "#3f51b5",
       dark: "#0A535B",
       light: "#14B2C9",
       contrastText: "#FFFFFF",
@@ -12,9 +12,9 @@ export default createMuiTheme({
       }
     },
     secondary: {
-      main: "#303F9F",
-      dark: "#1A237E",
-      light: "#3F51B5",
+      main: "#8A2BE2",
+      dark: "#BA55D3",
+      light: "#D8BFD8",
       contrastText: "#FFFFFF"
     },
     extras: {
@@ -29,6 +29,12 @@ export default createMuiTheme({
       textTransform: "none",
       fontWeight: 700,
       fontSize: "1rem"
+    },
+    estimate: {
+      fontFamily: "Roboto",
+      fontSize: "1rem",
+      textTransform: "none",
+      color: "white"
     }
   }
 });
