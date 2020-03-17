@@ -60,8 +60,22 @@ export default function Header(props) {
   const [value, newValue] = useState(0);
   const [anchorEl, setAnchorEl] = useState(null);
   const [open, setOpen] = useState(false);
-  const [selectedIndex, setSelectedIndex] = useState(1);
 
+  //test
+  const [newAnchorEl, setNewAnchorEl] = useState(null);
+  const [newOpen, setNewOpen] = useState(false);
+
+  const newHandleClick = e => {
+    setNewAnchorEl(e.currentTarget);
+    setOpen(true);
+  };
+
+  const newHandleClose = e => {
+    setNewAnchorEl(null);
+    setNewOpen(false);
+  };
+
+  //test done
   const handleChange = (e, value) => {
     newValue(value);
   };
@@ -131,13 +145,16 @@ export default function Header(props) {
                 aria-haspopup={anchorEl ? "true" : undefined}
                 className={classes.tabs}
                 component={Link}
-                onClick={event => handleClick(event)}
+                onMouseOver={event => handleClick(event)}
                 to="services"
                 label="Services"
               />
               <Tab
+                aria-owns={newAnchorEl ? "simple-menu2" : undefined}
+                aria-haspopup={newAnchorEl ? "simple-menu2" : undefined}
                 className={classes.tabs}
                 component={Link}
+                onClick={event => newHandleClick(event)}
                 to="revolution"
                 label="The Revolution"
               />
@@ -168,12 +185,49 @@ export default function Header(props) {
               anchorEl={anchorEl}
               open={open}
               onClose={handleClose}
+              MenuListProps={{ onMouseLeave: handleClose }}
             >
-              <MenuItem onClick={handleClose}>
+              <MenuItem
+                onClick={() => {
+                  handleClose();
+                  newValue(1);
+                }}
+                component={Link}
+                to="/services"
+              >
+                Services
+              </MenuItem>
+
+              <MenuItem
+                onClick={() => {
+                  handleClose();
+                  newValue(1);
+                }}
+                component={Link}
+                to="/customsoftware"
+              >
                 Custom Software Development
               </MenuItem>
-              <MenuItem onClick={handleClose}>Mobile App Development</MenuItem>
-              <MenuItem onClick={handleClose}>Website Development</MenuItem>
+              <MenuItem
+                onClick={() => {
+                  handleClose();
+                  newValue(1);
+                }}
+                component={Link}
+                to="/mobileapp"
+              >
+                Mobile App Development
+              </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  handleClose();
+                  newValue(1);
+                }}
+                component={Link}
+                to="/websites"
+              >
+                Website Development
+              </MenuItem>
             </Menu>
           </Toolbar>
         </AppBar>
