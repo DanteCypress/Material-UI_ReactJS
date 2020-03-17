@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
@@ -30,6 +30,7 @@ const useStyles = makeStyles(theme => ({
   },
   tabsContainer: {
     marginLeft: "auto"
+    // indicatorColor: "main"
   },
   tabs: {
     ...theme.typography.tabs,
@@ -47,7 +48,11 @@ const useStyles = makeStyles(theme => ({
 
 export default function Header(props) {
   const classes = useStyles();
+  const [value, newValue] = useState(0);
 
+  const handleChange = (e, value) => {
+    newValue(value);
+  };
   return (
     <React.Fragment>
       <ElevationScroll>
@@ -55,7 +60,12 @@ export default function Header(props) {
           {/*Toolbar- stack content horizontally, rather than vertically*/}
           <Toolbar disableGutters>
             <img src={logo} alt="logo" className={classes.logo} />
-            <Tabs className={classes.tabsContainer}>
+            <Tabs
+              value={value}
+              onChange={handleChange}
+              className={classes.tabsContainer}
+              indicatorColor="primary"
+            >
               <Tab className={classes.tabs} label="Home" />
               <Tab className={classes.tabs} label="Services" />
               <Tab className={classes.tabs} label="The Revolution" />
