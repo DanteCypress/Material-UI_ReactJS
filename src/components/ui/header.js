@@ -7,6 +7,7 @@ import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
 import Button from "@material-ui/core/Button";
 import logo from "../../assets/logo.svg";
+import { Link } from "react-router-dom";
 
 function ElevationScroll(props) {
   const { children } = props;
@@ -66,16 +67,43 @@ export default function Header(props) {
               className={classes.tabsContainer}
               indicatorColor="primary"
             >
-              <Tab className={classes.tabs} label="Home" />
-              <Tab className={classes.tabs} label="Services" />
-              <Tab className={classes.tabs} label="The Revolution" />
-              <Tab className={classes.tabs} label="About Us" />
-              <Tab className={classes.tabs} label="Contact Us" />
+              <Tab
+                className={classes.tabs}
+                component={Link}
+                to="/"
+                label="Home"
+              />
+              <Tab
+                className={classes.tabs}
+                component={Link}
+                to="services"
+                label="Services"
+              />
+              <Tab
+                className={classes.tabs}
+                component={Link}
+                to="revolution"
+                label="The Revolution"
+              />
+              <Tab
+                className={classes.tabs}
+                component={Link}
+                to="about"
+                label="About Us"
+              />
+              <Tab
+                className={classes.tabs}
+                component={Link}
+                to="contact"
+                label="Contact Us"
+              />
             </Tabs>
             <Button
               variant="contained"
               color="secondary"
               className={classes.button}
+              component={Link}
+              to="estimate"
             >
               Free Estimate
             </Button>
