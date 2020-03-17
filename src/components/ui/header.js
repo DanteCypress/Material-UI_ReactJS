@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import useScrollTrigger from "@material-ui/core/useScrollTrigger";
@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
     marginBottom: "3em"
   },
   logo: {
-    height: "7em"
+    height: "8em"
   },
   tabsContainer: {
     marginLeft: "auto"
@@ -44,6 +44,12 @@ const useStyles = makeStyles(theme => ({
     marginLeft: "50px",
     marginRight: "25px",
     height: "45px"
+  },
+  logoContainer: {
+    padding: 0,
+    "&:hover": {
+      backgroundColor: "transparent"
+    }
   }
 }));
 
@@ -54,13 +60,45 @@ export default function Header(props) {
   const handleChange = (e, value) => {
     newValue(value);
   };
+  useEffect(() => {
+    switch (window.location.pathname) {
+      case "/":
+        newValue(0);
+        break;
+      case "/services":
+        newValue(1);
+        break;
+      case "revolution":
+        newValue(2);
+        break;
+      case "/about":
+        newValue(3);
+        break;
+      case "contact":
+        newValue(4);
+        break;
+      case "/estimate":
+        newValue(5);
+        break;
+    }
+  }, [value]);
   return (
     <React.Fragment>
       <ElevationScroll>
         <AppBar position="fixed" color="primary">
           {/*Toolbar- stack content horizontally, rather than vertically*/}
           <Toolbar disableGutters>
-            <img src={logo} alt="logo" className={classes.logo} />
+            <Button
+              component={Link}
+              to="/"
+              disableRipple
+              onClick={() => {
+                newValue(0);
+              }}
+              className={classes.logoContainer}
+            >
+              <img src={logo} alt="logo" className={classes.logo} />
+            </Button>
             <Tabs
               value={value}
               onChange={handleChange}
