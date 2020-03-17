@@ -24,9 +24,11 @@ export default createMuiTheme({
     successColor: "#017C68"
   },
   typography: {
-    h3: {
-      fontWeight: 300,
-      fontFamily: "Roboto, Helvetica, Arial, sans-serif"
+    tabs: {
+      fontFamily: "Raleway",
+      textTransform: "none",
+      fontWeight: 700,
+      fontSize: "1rem"
     }
   }
 });
