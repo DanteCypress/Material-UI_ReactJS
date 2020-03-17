@@ -8,6 +8,8 @@ import Tabs from "@material-ui/core/Tabs";
 import Button from "@material-ui/core/Button";
 import logo from "../../assets/logo.svg";
 import { Link } from "react-router-dom";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
 
 function ElevationScroll(props) {
   const { children } = props;
@@ -56,9 +58,22 @@ const useStyles = makeStyles(theme => ({
 export default function Header(props) {
   const classes = useStyles();
   const [value, newValue] = useState(0);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [open, setOpen] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(1);
 
   const handleChange = (e, value) => {
     newValue(value);
+  };
+
+  const handleClick = e => {
+    setAnchorEl(e.currentTarget);
+    setOpen(true);
+  };
+
+  const handleClose = e => {
+    setAnchorEl(null);
+    setOpen(false);
   };
   useEffect(() => {
     switch (window.location.pathname) {
@@ -68,7 +83,7 @@ export default function Header(props) {
       case "/services":
         newValue(1);
         break;
-      case "revolution":
+      case "/revolution":
         newValue(2);
         break;
       case "/about":
@@ -112,8 +127,11 @@ export default function Header(props) {
                 label="Home"
               />
               <Tab
+                aria-owns={anchorEl ? "simple-menu" : undefined}
+                aria-haspopup={anchorEl ? "true" : undefined}
                 className={classes.tabs}
                 component={Link}
+                onClick={event => handleClick(event)}
                 to="services"
                 label="Services"
               />
@@ -145,6 +163,18 @@ export default function Header(props) {
             >
               Free Estimate
             </Button>
+            <Menu
+              id="simple-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+            >
+              <MenuItem onClick={handleClose}>
+                Custom Software Development
+              </MenuItem>
+              <MenuItem onClick={handleClose}>Mobile App Development</MenuItem>
+              <MenuItem onClick={handleClose}>Website Development</MenuItem>
+            </Menu>
           </Toolbar>
         </AppBar>
       </ElevationScroll>
