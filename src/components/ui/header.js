@@ -245,12 +245,16 @@ export default function Header(props) {
               </MenuItem> */}
               {menuOption.map((option, i) => (
                 <MenuItem
+                  key={option}
                   component={Link}
                   to={option.link}
                   classes={{ root: classes.item }}
-                  onClick={() => {
-                    handleMenuItemClick();
+                  onClick={event => {
+                    handleMenuItemClick(event, i);
+                    newValue(1);
+                    handleClose();
                   }}
+                  selected={i === selectedIndex}
                 >
                   {option.name}
                 </MenuItem>
