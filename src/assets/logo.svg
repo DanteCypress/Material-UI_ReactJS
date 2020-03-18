@@ -1,1 +1,32 @@
-<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 139"><style>.st0{fill:none}.st1{fill:#fff}.st2{font-family:&apos;Raleway-Thin&apos;}.st6{fill:none;stroke:#000;stroke-width:3;stroke-miterlimit:10}</style><path d="M448.07-1l-9.62 17.24-8.36 14.96L369.93 139H-1V-1z"/><path class="st0" d="M-1 139h479.92v.01H-1z"/><text transform="translate(261.994 65.233)" class="st1 st2" font-size="57">Arc</text><text transform="translate(17.692 112.015)" class="st1 st2" font-size="54">Development</text><path class="st0" d="M382.44 116.43l47.65-85.23 8.36-14.96M369.83 139l-.01.01L362 153"/><path d="M438.76 15.76l-56.42 100.91c-12.52-10.83-20.45-26.82-20.45-44.67 0-32.58 26.42-59 59-59 6.23 0 12.24.97 17.87 2.76z" fill="#0b72b9"/><path d="M479.89 72c0 32.58-26.42 59-59 59-14.73 0-28.21-5.4-38.55-14.33l56.42-100.91c23.85 7.57 41.13 29.89 41.13 56.24z"/><g id="Group_186" transform="translate(30.153 11.413)"><g id="Group_185"><g id="Words"><path id="Path_59" class="st1" d="M405.05 14.4l-.09 80.38-7.67-.01.06-52.25-29.4 52.21-7.94-.01 45.04-80.32z"/></g></g></g><path class="st0" d="M457-17l-8.93 16-9.62 17.24-8.36 14.96L369.93 139l-.01.01L361 155"/></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 480 139" style="enable-background:new 0 0 480 139;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:none;}
+	.st1{fill:#292BBF;}
+	.st2{fill:#FFFFFF;}
+	.st3{font-family:'TroutbeckDEMO-Regular';}
+	.st4{font-size:59px;}
+</style>
+<path d="M448.1-1l-9.6,17.2l-8.4,15L369.9,139H-1V-1H448.1z"/>
+<path class="st0" d="M-1,139h479.9l0,0H-1L-1,139z"/>
+<path class="st0" d="M382.4,116.4L430,31.2l8.4-15 M369.8,139L369.8,139l-7.8,14"/>
+<path class="st1" d="M438.8,15.8l-56.4,100.9c-12.5-10.8-20.5-26.8-20.5-44.7c0-32.6,26.4-59,59-59C427.1,13,433.1,14,438.8,15.8z"
+	/>
+<path d="M479.9,72c0,32.6-26.4,59-59,59c-14.7,0-28.2-5.4-38.5-14.3l56.4-100.9C462.6,23.3,479.9,45.6,479.9,72z"/>
+<g id="Group_186" transform="translate(30.153 11.413)">
+	<g id="Group_185">
+		<g id="Words">
+			<path id="Path_59" class="st2" d="M405,14.4v80.4h-7.7l0.1-52.2L368,94.8h-7.9C360,94.7,405,14.4,405,14.4z"/>
+		</g>
+	</g>
+</g>
+<path class="st0" d="M457-17l-8.9,16l-9.6,17.2l-8.4,15L369.9,139l0,0l-8.9,16"/>
+<rect x="203.1" y="19" class="st0" width="146.8" height="48.3"/>
+<rect x="108.2" y="69" class="st0" width="252.8" height="48.3"/>
+<text transform="matrix(1 0 0 1 108.1633 109.8268)" class="st2 st3 st4">Development</text>
+<text transform="matrix(1 0 0 1 197.1635 55.8267)" class="st2 st3 st4">Cypress</text>
+<image style="overflow:visible;" width="600" height="600" xlink:href="../../../600x600bf.png"  transform="matrix(0.1873 0 0 0.1873 365.9 17.1959)">
+</image>
+</svg>

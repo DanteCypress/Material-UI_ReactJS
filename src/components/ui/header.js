@@ -72,22 +72,8 @@ export default function Header(props) {
   const [value, newValue] = useState(0);
   const [anchorEl, setAnchorEl] = useState(null);
   const [open, setOpen] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
-  //test
-  const [newAnchorEl, setNewAnchorEl] = useState(null);
-  const [newOpen, setNewOpen] = useState(false);
-
-  const newHandleClick = e => {
-    setNewAnchorEl(e.currentTarget);
-    setOpen(true);
-  };
-
-  const newHandleClose = e => {
-    setNewAnchorEl(null);
-    setNewOpen(false);
-  };
-
-  //test done
   const handleChange = (e, value) => {
     newValue(value);
   };
@@ -101,13 +87,29 @@ export default function Header(props) {
     setAnchorEl(null);
     setOpen(false);
   };
+
+  const handleMenuItemClick = (e, i) => {
+    setAnchorEl(null);
+    setOpen(false);
+    setSelectedIndex(i);
+  };
+
+  const menuOption = [
+    { name: "Services", link: "/services" },
+    { name: "Custom Software Development", link: "/customsoftware" },
+    { name: "Moble App Development", link: "/mobileapp" },
+    { name: "Website Development", link: "/websites" }
+  ];
   useEffect(() => {
     switch (window.location.pathname) {
+      default:
+        break;
       case "/":
         newValue(0);
         break;
       case "/services":
         newValue(1);
+        setSelectedIndex(0);
         break;
       case "/revolution":
         newValue(2);
@@ -120,6 +122,20 @@ export default function Header(props) {
         break;
       case "/estimate":
         newValue(5);
+        break;
+      case "/customsoftware":
+        newValue(1);
+        setSelectedIndex(1);
+        break;
+      case "/mobileapp":
+        newValue(1);
+        setSelectedIndex(2);
+
+        break;
+      case "/websites":
+        newValue(1);
+        setSelectedIndex(3);
+
         break;
     }
   }, [value]);
@@ -162,11 +178,8 @@ export default function Header(props) {
                 label="Services"
               />
               <Tab
-                aria-owns={newAnchorEl ? "simple-menu2" : undefined}
-                aria-haspopup={newAnchorEl ? "simple-menu2" : undefined}
                 className={classes.tabs}
                 component={Link}
-                onClick={event => newHandleClick(event)}
                 to="revolution"
                 label="The Revolution"
               />
@@ -201,6 +214,7 @@ export default function Header(props) {
               classes={{ paper: classes.menu }}
               elevation={0}
             >
+              {/* Refactored using Map LINE 247
               <MenuItem
                 onClick={() => {
                   handleClose();
@@ -245,7 +259,23 @@ export default function Header(props) {
                 classes={{ root: classes.item }}
               >
                 Website Development
-              </MenuItem>
+              </MenuItem> */}
+              {menuOption.map((option, i) => (
+                <MenuItem
+                  key={option}
+                  component={Link}
+                  to={option.link}
+                  classes={{ root: classes.item }}
+                  onClick={event => {
+                    handleMenuItemClick(event, i);
+                    newValue(1);
+                    handleClose();
+                  }}
+                  selected={i === selectedIndex && value === 1}
+                >
+                  {option.name}
+                </MenuItem>
+              ))}
             </Menu>
           </Toolbar>
         </AppBar>
