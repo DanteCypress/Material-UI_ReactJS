@@ -102,11 +102,14 @@ export default function Header(props) {
   ];
   useEffect(() => {
     switch (window.location.pathname) {
+      default:
+        break;
       case "/":
         newValue(0);
         break;
       case "/services":
         newValue(1);
+        setSelectedIndex(0);
         break;
       case "/revolution":
         newValue(2);
@@ -119,6 +122,20 @@ export default function Header(props) {
         break;
       case "/estimate":
         newValue(5);
+        break;
+      case "/customsoftware":
+        newValue(1);
+        setSelectedIndex(1);
+        break;
+      case "/mobileapp":
+        newValue(1);
+        setSelectedIndex(2);
+
+        break;
+      case "/websites":
+        newValue(1);
+        setSelectedIndex(3);
+
         break;
     }
   }, [value]);
@@ -254,7 +271,7 @@ export default function Header(props) {
                     newValue(1);
                     handleClose();
                   }}
-                  selected={i === selectedIndex}
+                  selected={i === selectedIndex && value === 1}
                 >
                   {option.name}
                 </MenuItem>
